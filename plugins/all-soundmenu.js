@@ -190,7 +190,7 @@ const sections = [
 ]
 
 const listMessage = {
-  text: `Script : https://youtube.com/channel/UCjoPsysjCn2Qa0dRalUb2mg`,
+  text: `𝐑𝐮𝐦𝐢𝐧𝐚𝐬 𝐌𝐃`,
   footer: teks,
   title: 'ᴄʟɪᴄᴋ ʙᴜᴛᴛᴏɴ ɴᴏᴡ!',
   buttonText: "Pʟᴀʏɪɴɢ Nᴏᴡ...",
