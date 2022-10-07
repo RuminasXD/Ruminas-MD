@@ -81,7 +81,7 @@ const readMore = more.repeat(4001)
 
 global.owner = [
 ['62895627514070', 'Han', true],
-['62895627514070', 'Bot', true]
+['6289636643917', 'Just Bot', true]
 ]
 global.mods = []
 global.prems = []
