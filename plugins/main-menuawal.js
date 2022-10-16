@@ -129,7 +129,7 @@ conn.send2ButtonImg(m.chat, await genProfile(conn, m), konten, ᴛᴇs, but1, id
 handler.help = ['menu']
 handler.tags = ['main']
 handler.command = /^(menu|help)$/i
-handler.register = true
+handler.register = false
 
 export default handler
 
