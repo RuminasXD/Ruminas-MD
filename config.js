@@ -110,7 +110,8 @@ global.stickauth = `© 𝐑𝐮𝐦𝐢𝐧𝐚𝐬-𝐌𝐝`
 global.week = `${week} ${date}`
 global.wibb = `${wktuwib}`
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ OWNER INFO ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
-global.nameown1= 'Han'
+global.nameown1 = 'Rayhn'
+global.nameown = 'Han'
 global.nameown2 = 'Ray'
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ MEDIA LINK ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
 global.Linkgc = 'https://chat.whatsapp.com/CZlamemhpn06a5sW063xOg'
