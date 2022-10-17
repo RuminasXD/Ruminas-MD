@@ -57,7 +57,8 @@ ${emot}│☂︎ *Uptime:* %muptime
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
   let res = JSON.parse(readFileSync('./json/emoji.json'))
-     let em = res.emoji
+    let em = res.emoji
+    let fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 	let whmods = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 	let tags
@@ -378,7 +379,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: fakes, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
+  	return conn.sendMessage(m.chat, listMessage, { quoted: fkontak, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
     }
 	  
  /**************************** TIME *********************/
