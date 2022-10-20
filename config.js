@@ -123,6 +123,7 @@ global.sig = 'https://instagram.com/'
 global.sgh = 'https://github.com/RyhnXD' //github
 global.sgc = 'https://chat.whatsapp.com/CZlamemhpn06a5sW063xOg' //group whatsapp
 global.sdc = '-' //discord
+global.img = 'https://telegra.ph/file/217240828cdc11b650129.jpg'
 global.snh = 'https://nhentai.com'
 
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ DONASI ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
