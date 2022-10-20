@@ -99,14 +99,14 @@ let wib = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 }
 } })*/
 let nowaa = '0'
-let nogww = '6281361281833'
+let nogww = '62895627514070'
 let nogwww = `@${nomorown1.split`@`[0]}`
 let nowa = `${nowaa.split`@`[0]}@s.whatsapp.net`
 let nogw = `${nogww.split`@`[0]}@s.whatsapp.net`
 let but1 = ('All Menu') 
 let id1 = '.? all'
 let but2 = ('List Menu') 
-let id2 = '.tesm'
+let id2 = '.menulist'
 let but3 = ('Sewabot') 
 let id3 = '.sewa'
 let konten = (`*${ucapan()}, ${tag} 👋*, ${kata}`)
@@ -121,7 +121,7 @@ conn.send2ButtonImg(m.chat, await genProfile(conn, m), konten, ᴛᴇs, but1, id
     description: sgc,
     title: "Hᴀʟᴏ Jᴀɴɢᴀɴ Lᴜᴘᴀ Bᴇʀsʏᴜᴋᴜʀ!!",
     body: kata,
-    thumbnail: img,
+    thumbnail: fs.readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
