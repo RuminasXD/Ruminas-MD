@@ -704,7 +704,7 @@ export async function participantsUpdate({ id, participants, action }) {
                                 membercount: groupMetadata.participants.length
                             })
                             
-  conn.sendButtonDoc(id, wm, text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Sakura', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
+  /*conn.sendButtonDoc(id, wm, text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Sakura', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://wa.me/62895627514070',
     mediaType: "FOTO", 
     description: sgc,
@@ -713,7 +713,7 @@ export async function participantsUpdate({ id, participants, action }) {
     thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
     sourceUrl: sgc
      }}
-  })
+  })*/
   let welcom = 'https://telegra.ph/file/9a7fa9066c9f1e7c0ad97.jpg'
 
   let godbye = 'https://telegra.ph/file/035b3599399984ae28762.jpg'
