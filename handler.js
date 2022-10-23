@@ -714,9 +714,9 @@ export async function participantsUpdate({ id, participants, action }) {
     sourceUrl: sgc
      }}
   })
-  let welcom = 'https://telegra.ph/file/aa6e6cf3bcd33bb3d3460.jpg'
+  let welcom = 'https://telegra.ph/file/9a7fa9066c9f1e7c0ad97.jpg'
 
-  let godbye = 'https://telegra.ph/file/bf51c21b0804185ad24ee.jpg'
+  let godbye = 'https://telegra.ph/file/035b3599399984ae28762.jpg'
   conn.sendButtonImg(id, await(await fetch(action === 'add' ? wel : lea)).buffer(), 'Group Messege', text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'RimuruBot', fkontak)
   
                     }
