@@ -706,7 +706,7 @@ export async function participantsUpdate({ id, participants, action }) {
                             
   conn.sendButtonDoc(id, wm, text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Sakura', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://wa.me/62895627514070',
-    mediaType: ,"FOTO", 
+    mediaType: "FOTO", 
     description: sgc,
     title: 'Jangan lupa join cuy!',
     body: wm,
