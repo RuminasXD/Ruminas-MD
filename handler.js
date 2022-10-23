@@ -706,9 +706,9 @@ export async function participantsUpdate({ id, participants, action }) {
                             
   conn.sendButtonDoc(id, wm, text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Sakura', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://wa.me/62895627514070',
-    mediaType: 2, 
+    mediaType: ,"FOTO", 
     description: sgc,
-    title: '𝗠𝗲𝗴𝘂𝗺𝗶 ボット',
+    title: 'Jangan lupa join cuy!',
     body: wm,
     thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
     sourceUrl: sgc
@@ -904,7 +904,7 @@ let msg = {
 }[type]
 if (msgg) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, msgg + '\n\n\n\n', '❮ ᴠᴇʀɪғʏ ❯', '.verify', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
+    mediaType: 2, 
     description: sgc,
     title: "Join Sini Juga Cuy!",
     body: wm,
