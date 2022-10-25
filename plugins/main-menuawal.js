@@ -117,7 +117,7 @@ let knnt = `
 let ᴛᴇs = `Pᴏᴡᴇʀ Bʏ ⬝ @${nomorwa.split`@`[0]}\nCʀᴇᴀᴛᴏʀ Bᴏᴛ ⬝ @${nomorown1.split`@`[0]}\n⫹⫺ DATE: ${week} ${date}\n⫹⫺ 𝗧𝗶𝗺𝗲: ${wktuwib}`
 conn.send2ButtonImg(m.chat, await genProfile(conn, m), knnt, ᴛᴇs, but1, id1, but2, id2, m, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://wa.me/62895627514070',
-    mediaType: "VIDEO", 
+    mediaType: 2, 
     description: sgc,
     title: "𝗟𝘂𝗺𝗶𝗻𝗼𝘂𝘀-𝗠𝗗",
     body: kata,
