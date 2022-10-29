@@ -713,16 +713,23 @@ export async function participantsUpdate({ id, participants, action }) {
     thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
     sourceUrl: sgc
      }}
-  })*/
- /* let welcom = 'https://telegra.ph/file/55846faff297334d352b7.jpg'
+  })
+ let welcom = 'https://telegra.ph/file/55846faff297334d352b7.jpg'
 
-  let godbye = 'https://telegra.ph/file/b44e48066aed4fb7ad291.jpg'*//
-  conn.sendButtonImg(id, await(await fetch(action === 'add' ? wel : lea)).buffer(), 'Group Messege', text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Aʟᴅɪ X Aɪsʏᴀʜ', fkontak, { contextInfo: { externalAdReply :{ 
-                mediaType: 1, 
-                title: this.getName(user), 
-                thumbnail: await(await fetch(pp)).buffer(), 
-                sourceUrl: sgc,
-                renderLargerThumbnail: true,
+  let godbye = 'https://telegra.ph/file/b44e48066aed4fb7ad291.jpg' */
+  conn.sendButtonImg(id, await(await fetch(action === 'add' ? wel : lea)).buffer(), 'Group Messege', text, action == 'add' ? 'ᴡᴇʟᴄᴏᴍᴇ' : 'sᴀʏᴏɴᴀʀᴀᴀ', action === 'add' ? '.intro' : 'Aʟᴅɪ X Aɪsʏᴀʜ', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: 'https://instagram.com',
+    mediaType: 1, 
+    description: sgc,
+    title: "Jᴏɪɴ Sɪɴɪ Cᴜʏ",
+    body: wm,
+    thumbnail: await(await fetch(action === 'add' ? welcom : godbye)).buffer(),
+    sourceUrl: sgc
+     }}
+  })
+  
+                    }
+                }
             }
             break
         case 'promote':
@@ -906,7 +913,7 @@ let msg = {
 }[type]
 if (msgg) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, msgg + '\n\n\n\n', '❮ ᴠᴇʀɪғʏ ❯', '.verify', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
     mediaUrl: 'https://instagram.com/',
-    mediaType: 2, 
+    mediaType: 1, 
     description: sgc,
     title: "Join Sini Juga Cuy!",
     body: wm,
