@@ -708,7 +708,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 mediaType: 1, 
                 title: this.getName(user), 
                 thumbnail: await(await fetch(pp)).buffer(), 
-                sourceUrl: 'https://instagram.com/b4c00t4an_s3l3b',
+                sourceUrl: 'https://chat.whatsapp.com/HJRUnvGtpR9Ah4EWM3GT91',
                 renderLargerThumbnail: true,
             }}
   })
