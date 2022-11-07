@@ -12,7 +12,7 @@ if (!args[0]) throw '\nSertakan link tiktoknya kak !\n\nContoh: .tiktok https://
 • Description: ${description}
 
 
-𝐑𝐮𝐦𝐢𝐧𝐚𝐬-𝐌𝐝
+                                    「 вy ѕaĸυra вoт 」
 `.trim(), m)
 }
 handler.help = ['tiktok']
