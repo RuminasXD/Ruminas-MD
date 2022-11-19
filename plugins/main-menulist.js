@@ -11,21 +11,27 @@ import fetch from 'node-fetch'
 
 const defaultMenu = {
   before: `
-╭──┄⸙ *DASHBOARD* ⸙┄────
-│Hallo, *%name!* 
-│${ucapan()}
-│
-│◙ *Tanggal:* %week, %date
-│◙ *Waktu:* %time
-│◙ *Bot Online:* (%muptime)
-│◙ *Pengguna:* %totalreg Orang
-│◙ *Lib:* Baileys-Md
-│◙ *Language:* Javascript,Ts-Node
-╰──────────━⃝┅⃝━────────┘
+╭─────═[ DASHBOARD ]═─────⋆
+│╭────────────────···
+┴│☂︎ *Nama Bot:* %me
+⬡│☂︎ *Mode:* %mode
+⬡│☂︎ *Prefix:* [ *%_p* ]
+⬡│☂︎ *Baileys:* Multi Device
+⬡│☂︎ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+⬡│☂︎ *Platform:* %platform
+⬡│☂︎ *Type:* Node.Js
+⬡│☂︎ *Uptime:* %muptime
+┬│☂︎ *Database:* %rtotalreg dari %totalreg
+│╰────────────────···
+╰──────────═┅═──────────
+▣──「 INFO CMD 」───⬣
+│ *Ⓟ* = Premium
+│ *Ⓛ* = Limit
+▣────────────⬣
 %readmore
 `.trimStart(),
   header: '❏═┅═━–〈 *〘 %category 〙*\n│',
-    body: '┊➥ %cmd %islimit %isPremium',
+    body: '┊☼ %cmd %islimit %isPremium',
   footer: '│\n┗━═┅═━––––––๑\n',
   after: `  ${'✧\n┬ 📮 *Note* :\n│ Tolong jangan dispam ya biar ga delay\n╰━━━━━━━━━━━━━━━━┈─◂'}`,
 }
