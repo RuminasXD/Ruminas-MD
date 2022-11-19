@@ -21,14 +21,13 @@ const defaultMenu = {
 │◙ *Pengguna:* %totalreg Orang
 │◙ *Lib:* Baileys-Md
 │◙ *Language:* Javascript,Ts-Node
-│◙ *Fitur:* %totalfeatures command
 ╰──────────━⃝┅⃝━────────┘
 %readmore
 `.trimStart(),
-  header: '%cc *☘ %category ☘* %c1',
-  body: '%c2 %cmd %isPremium %islimit',
-  footer: '\n𝗌𝖺𝗄𝗎𝗋𝖺-𝗆𝖽',
-  after: `%c4 %me`,
+  header: '❏═┅═━–〈 *〘 %category 〙*\n│',
+    body: '┊➥ %cmd %islimit %isPremium',
+  footer: '│\n┗━═┅═━––––––๑\n',
+  after: `  ${'✧\n┬ 📮 *Note* :\n│ Tolong jangan dispam ya biar ga delay\n╰━━━━━━━━━━━━━━━━┈─◂'}`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	let tags
