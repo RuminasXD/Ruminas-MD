@@ -304,7 +304,7 @@ global.drtf = 'text/rtf'
 //OPTIONS
 global.optsnsfw = true // Untuk mematikan Dan Menyalakan Nsfw
 global.premnsfw = true // Nsfw Mode Premium?
-global.thumb = 'https://telegra.ph/file/b04ede9fa6a0032ee4282.jpg' //Main Thumbnail
+global.thumb = 'https://telegra.ph/file/5194e9690cb44639b2414.jpg' //Main Thumbnail
 global.imagebot = 'https://telegra.ph/file/d228cf9e49e7413568a1c.jpg'
 global.giflogo = 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4'
 global.thumbs = ['https://telegra.ph/file/d228cf9e49e7413568a1c.jpg']
