@@ -17,7 +17,7 @@ const defaultMenu = {
 │
 │◙ *Tanggal:* %week, %date
 │◙ *Waktu:* %time
-│◙ *Bot Online:* %uptime (%muptime)
+│◙ *Bot Online:* (%muptime)
 │◙ *Pengguna:* %totalreg Orang
 │◙ *Lib:* Baileys-Md
 │◙ *Language:* Javascript,Ts-Node
