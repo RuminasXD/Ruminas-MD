@@ -216,7 +216,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	    {title: `📛)ഒ Info Bot`, rowId: ".info", description: "✧ Info nya BOT ><"},
 	    {title: `💌)ഒ Owner`, rowId: ".owner", description: "✧ Ini Room Developer ku ^~^"},
 	{title: `🗣)ഒ Request Fitur`, rowId: ".request", description: "✧ Request Fitur menarik ke BOT"},
-	{title: `💻)ഒ Bot Stats`, rowId: ".botinfo", description: "✧ Menampilkan Status BOT"},
+	{title: `💻)ഒ Bot Stats`, rowId: ".statserver", description: "✧ Menampilkan Status BOT"},
 	{title: `📊)ഒ Test Speed`, rowId: ".ping", description: "✧ Test Install Speed BOT"},
 	{title: `🔧)ഒ Customer Service`, rowId: ".complaint", description: "✧ Report keluhan mu di sini..."},
 	{title: `⚡)ഒ Speed`, rowId: ".ping", description: "✧ Kecepatan Respon BOT..."},
