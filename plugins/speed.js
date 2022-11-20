@@ -1,6 +1,8 @@
 import { cpus as _cpus, totalmem, freemem } from 'os'
 import util from 'util'
 import os from 'os'
+import fetch from 'node-fetch'
+import osu from 'node-os-utils'
 import { performance } from 'perf_hooks'
 import { sizeFormatter } from 'human-readable'
 let format = sizeFormatter({
@@ -9,7 +11,7 @@ let format = sizeFormatter({
   keepTrailingZeroes: false,
   render: (literal, symbol) => `${literal} ${symbol}B`,
 })
-let handler = async (m, { conn, isRowner}) => {
+let handler = async (m, { conn, usedPrefix, isRowner}) => {
 	let _muptime
     if (process.send) {
       process.send('uptime')
@@ -46,73 +48,43 @@ let handler = async (m, { conn, isRowner}) => {
       irq: 0
     }
   })
+
   let old = performance.now()
   await m.reply(`${htjava} *T e s t i n g. . .*`)
   let neww = performance.now()
   let speed = neww - old
-  let txt = `${htjava} *P I N G*
-  ${speed}ms
-  
-  ${htjava} *R U N T I M E* 
-  ${muptime}
-  ${readMore}
-  ${htki} *CHATS* ${htka}
-  • *${groupsIn.length}* Group Chats
-  • *${groupsIn.length}* Groups Joined
-  • *${groupsIn.length - groupsIn.length}* Groups Left
-  • *${chats.length - groupsIn.length}* Personal Chats
-  • *${chats.length}* Total Chats
-  
-  
-  ${htki} *SERVER* ${htka}
-  *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-  *🔵 FreeRAM:* ${format(freemem())}
-  
-  *💻 Platform:* ${os.platform()}
-  *🧿 Server:* ${os.hostname()}
-  ${readMore}
-  *${htjava} NodeJS Memory Usage*
-  ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
-  
-  ${cpus[0] ? `_Total CPU Usage_
-  ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
-  
-  _CPU Core(s) Usage (${cpus.length} Core CPU)_
-  ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
-  `
-  /*await conn.sendHydrated(m.chat,`
-${htjava} *P I N G*
-${speed}ms
+  let caption = `*${htki} S P E E D ${htka}*
+${Math.round(neww - old)} ms
+${speed} ms
 
-${htjava} *R U N T I M E* 
+*${htjava} R U N T I M E* 
 ${muptime}
 ${readMore}
-${htki} *CHATS* ${htka}
+*${htjava} C H A T S*
 • *${groupsIn.length}* Group Chats
 • *${groupsIn.length}* Groups Joined
 • *${groupsIn.length - groupsIn.length}* Groups Left
 • *${chats.length - groupsIn.length}* Personal Chats
 • *${chats.length}* Total Chats
 
-
-${htki} *SERVER* ${htka}
+*${htjava} S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
 *🔵 FreeRAM:* ${format(freemem())}
 
-*💻 Platform:* ${os.platform()}
-*🧿 Server:* ${os.hostname()}
+*💻 Platform :* ${os.platform()}
+*🧿 Server :* ${os.hostname()}
 ${readMore}
-*${htjava} NodeJS Memory Usage*
+
+*NodeJS Memory Usage*
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 
-${cpus[0] ? `_Total CPU Usage_
+${cpus[0] ? `*Total CPU Usage*
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 
-_CPU Core(s) Usage (${cpus.length} Core CPU)_
+*CPU Core(s) Usage (${cpus.length} Core CPU)*
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
-`,botdate, null, sgc, '🌎 GROUP OFFICIAL', null,null, [[null,null],[null,null],[null,null]], m) */
-.trim()
-  m.reply(txt)
+`
+await conn.sendButtonDoc(m.chat, caption, author, 'ℹ️ Menu', '.menu', null, adReply)
 }
 handler.help = ['ping', 'speed']
 handler.tags = ['info', 'tools']
