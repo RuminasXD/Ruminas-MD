@@ -1,75 +1,45 @@
 import fs from 'fs'
 import fetch from 'node-fetch'
-import moment from 'moment-timezone'
-let handler = async (m, { conn, args, command }) => {
+import os from 'os'
+
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+let a = ["Halo", "Hai", " Hello"].getRandom()
+let pp = 'https://telegra.ph/file/100e386eb7437b0e7e084.jpg'
+let pepe = pp ? await (await fetch(pp)).buffer() : Buffer.alloc(0)
+let name = await conn.getName(m.sender)
 	let _muptime
-    if (process.send) {
-      process.send('uptime')
-      _muptime = await new Promise(resolve => {
-        process.once('message', resolve)
-        setTimeout(resolve, 1000)
-      }) * 1000
-    }
-    let muptime = clockString(_muptime)
-    
-    let fgclink = {
-           "key": {
-               "fromMe": false,
-               "participant": "0@s.whatsapp.net",
-               "remoteJid": "0@s.whatsapp.net"
-           },
-           "message": {
-               "groupInviteMessage": {
-                   "groupJid": "6282127487538-1625305606@g.us",
-                   "inviteCode": "null",
-                   "groupName": "Halo", 
-                   "caption": wm, 
-                   'jpegThumbnail': fs.readFileSync('./media/ok.jpg')
-               }
-           }
-       }
-       let tag = `@${m.sender.replace(/@.+/, '')}`
-  let mentionedJid = [m.sender]
-    
- conn.sendButtonDoc(m.chat, `𝑩𝒐𝒕 𝑼𝒑𝒕𝒊𝒎𝒆`, muptime + '\n\n', 'MENU', '.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'wa.me/6281361281833?text=Halo+aldi+ganteng❀',
-    mediaType: 2, 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
+		if (process.send) {
+			process.send('uptime')
+			_muptime = await new Promise(resolve => {
+				process.once('message', resolve)
+				setTimeout(resolve, 1000)
+			}) * 1000
+		}
+		let muptime = runtime(process.uptime())
+		let cap = `${htjava} 𝐑𝐔𝐍𝐓𝐈𝐌𝐄 ${htjava}
+${muptime}
+
+${global.author}`
+ await m.reply(cap)
 }
+
 handler.help = ['runtime']
 handler.tags = ['info']
 handler.command = ['runtime', 'rt']
 
 export default handler
 
-
-function ucapan() {
-  const time = moment.tz('Asia/Jakarta').format('HH')
-  let res = "Sudah Dini Hari Kok Belum Tidur Kak? 🥱"
-  if (time >= 4) {
-    res = "Pagi Lord 🌄"
-  }
-  if (time >= 10) {
-    res = "Selamat Siang Kak ☀️"
-  }
-  if (time >= 15) {
-    res = "Selamat Sore Kak 🌇"
-  }
-  if (time >= 18) {
-    res = "Malam Kak 🌙"
-  }
-  return res
-}
-function clockString(ms) {
-  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
+function runtime(seconds) {
+	seconds = Number(seconds);
+	var d = Math.floor(seconds / (3600 * 24));
+	var h = Math.floor(seconds % (3600 * 24) / 3600);
+	var m = Math.floor(seconds % 3600 / 60);
+	var s = Math.floor(seconds % 60);
+	var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+	var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+	var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+	var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+	return dDisplay + hDisplay + mDisplay + sDisplay;
+	return [dDisplay, ' *Days ☀️*\n ', hDisplay, ' *Hours 🕐*\n ', mDisplay, ' *Minute ⏰*\n ', sDisplay, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
