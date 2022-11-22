@@ -774,122 +774,25 @@ Untuk mematikan fitur ini, ketik
 }
 
 global.dfail = (type, m, conn) => {
-const fgclink = {
-           "key": {
-               "fromMe": false,
-               "participant": "0@s.whatsapp.net",
-               "remoteJid": "0@s.whatsapp.net"
-           },
-           "message": {
-               "groupInviteMessage": {
-                   "groupJid": "6282127487538-1625305606@g.us",
-                   "inviteCode": "null",
-                   "groupName": "Halo", 
-                   "caption": wm, 
-                   'jpegThumbnail': fs.readFileSync('./media/ok.jpg')
-               }
-           }
-       }
-       let tag = `@${m.sender.replace(/@.+/, '')}`
-  let mentionedJid = [m.sender]
-    let rown = {
-        rowner: '*ᴏɴʟʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙᴏᴛ'}[type]
-  if (rown) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, rown + '\n\n\n\n', 'Owner', '.owner', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-
-        
-let own = {
-owner: '*ᴏɴʟʏ ᴏᴡɴᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴏᴡɴᴇʀ ʙᴏᴛ'}[type]
-  if (own) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, own + '\n\n\n\n', 'Owner', '.owner', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-
-let mod = {
-mods: '*ᴏɴʟʏ ᴍᴏᴅᴇʀᴀᴛᴏʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴍᴏᴅᴇʀᴀᴛᴏʀ ʙᴏᴛ'}[type]
-  if (mod) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, mod + '\n\n\n\n', 'MENU', '.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-let prm = {
-        premium: '*ᴏɴʟʏ ᴘʀᴇᴍɪᴜᴍ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴘʀᴇᴍɪᴜᴍ ᴜsᴇʀ'}[type]
-  if (prm) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, prm + '\n\n\n\n', 'Beli Prem', '.sewa', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-
-let gc = {
-        group: '*ɢʀᴏᴜᴘ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴅᴀʟᴀᴍ ɢʀᴏᴜᴘ'
-        }[type]
-  if (gc) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, gc + '\n\n\n\n', 'MENU', '.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-
-let msg = {
+    let msg = {
+        rowner: '*ᴏɴʟʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙᴏᴛ',
+        owner: '*ᴏɴʟʏ ᴏᴡɴᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴏᴡɴᴇʀ ʙᴏᴛ',
+        mods: '*ᴏɴʟʏ ᴍᴏᴅᴇʀᴀᴛᴏʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴍᴏᴅᴇʀᴀᴛᴏʀ ʙᴏᴛ',
+        premium: '*ᴏɴʟʏ ᴘʀᴇᴍɪᴜᴍ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴘʀᴇᴍɪᴜᴍ ᴜsᴇʀ',
+        group: '*ɢʀᴏᴜᴘ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴅᴀʟᴀᴍ ɢʀᴏᴜᴘ',
         private: '*ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ',
         admin: '*ᴏɴʟʏ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ',
         botAdmin: '*ᴏɴʟʏ ʙᴏᴛ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ ᴋᴇᴛɪᴋᴀ ʙᴏᴛ ᴍᴇɴᴊᴀᴅɪ ᴀᴅᴍɪɴ',
-        restrict: '*ʀᴇsᴛʀɪᴄᴛ* • ʀᴇsᴛʀɪᴄᴛ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴅɪᴄʜᴀᴛ ɪɴɪ'}[type]
-  /*  if (msg) return conn.sendButtonDoc(m.chat, msg, wm, 'Menu', '.menu', fgclink)*/
-  if (msg) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, msg + '\n\n\n\n', 'MENU', '.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 'FOTO', 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
-  
-  
+        //unreg: '*ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ʀᴇɢɪsᴛᴇʀᴇᴅ ʏᴇᴛ* • ᴋᴇᴛɪᴋ  .daftar ᴜɴᴛᴜᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ', 
+        restrict: '*ʀᴇsᴛʀɪᴄᴛ* • ʀᴇsᴛʀɪᴄᴛ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴅɪᴄʜᴀᴛ ɪɴɪ',
+    }[type]
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '💌 Creator', '.owner', 'Oke Bang', 'Huuu', null, adReply)
     let msgg = {
-    	unreg: 'ʜᴀʟʟᴏ ᴋᴀᴋ 👋\nᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ ᴅᴜʟᴜ sᴇʙᴇʟᴜᴍ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ\n\n➞ ᴋʟɪᴄᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ'
+    	unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar kurumi.18*!'
 }[type]
-if (msgg) return conn.sendButtonDocAccess(m.chat, `${ucapan()} ` + tag, msgg + '\n\n\n\n', '❮ ᴠᴇʀɪғʏ ❯', '.verify', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: 'https://instagram.com/',
-    mediaType: 2, 
-    description: sgc,
-    title: "Join Sini Juga Cuy!",
-    body: wm,
-    thumbnail: fs.readFileSync('./thumbnail.jpg'),
-    sourceUrl: sgc
-     }}
-  })
+if (msgg) return conn.sendButton(m.chat, `${global.htki} VERIFY ${global.htka}`, msgg, null, ['- ᴠᴇʀɪғʏ -', '/verify'],m)
 }
+
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
   let res = "Sudah Dini Hari Kok Belum Tidur Kak? 🥱"
