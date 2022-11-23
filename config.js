@@ -95,18 +95,18 @@ global.nomorwa = '0'
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ WM ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
 
 global.readMore = readMore
-global.author = 'Rimuru'
-global.namebot = '​ ʀᴜᴍɪɴᴀs-ᴍᴅ'
-global.wm = 'sᴀᴋᴜʀᴀ ʙᴏᴛ'
+global.author = '𝗥𝗶𝗺𝘂𝗿𝘂'
+global.namebot = '​𝗦𝗵𝗶𝗸𝗶𝗺𝗼𝗿𝗶-𝗠𝗗'
+global.wm = '𝗦𝗵𝗶𝗸𝗶𝗺𝗼𝗿𝗶-𝗠𝗗'
 global.media = 'https://telegra.ph/file/55846faff297334d352b7.jpg'
-global.wm3 = 'ʀᴜᴍɪɴᴀs-ᴍᴅ '
+global.wm3 = wm
 global.watermark = wm
-global.wm2 = 'ᴠᴀʟᴇɴᴛɪɴᴇ-ᴍᴅ '
+global.wm2 = wm
 global.botdate = `⫹⫺ DATE: ${week} ${date}\n⫹⫺ 𝗧𝗶𝗺𝗲: ${wktuwib}`
 global.bottime = `T I M E : ${wktuwib}`
-global.titlebot = `ʀɪᴍᴜʀᴜ`
-global.stickpack = 'ʀᴜᴍɪɴᴀs𝒉'
-global.stickauth = `© 𝐑𝐮𝐦𝐢𝐧𝐚𝐬-𝐌𝐝`
+global.titlebot = `𝗥𝗶𝗺𝘂𝗿𝘂-𝗠𝗗`
+global.stickpack = '🐦'
+global.stickauth = `© Di Buat Oleh 𝗦𝗵𝗶𝗸𝗶𝗺𝗼𝗿𝗶-𝗠𝗗`
 global.week = `${week} ${date}`
 global.wibb = `${wktuwib}`
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ OWNER INFO ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
@@ -119,7 +119,7 @@ global.lynk = 'https://lynk.id/'
 
 
 //⫹⫺ ╳╶╼╶╶╶╶┈ ⎝ MEDIA SOSSIAL ⎞ ┈╴╴╴╴╾╴╳ ⫹⫺
-global.sig = 'https://instagram.com/'
+global.sig = 'https://instagram.com/rayhannr24'
 global.sgh = 'https://github.com/RyhnXD' //github
 global.sgc = 'https://chat.whatsapp.com/HJRUnvGtpR9Ah4EWM3GT91' //group whatsapp
 global.sdc = '-' //discord
