@@ -1,111 +1,85 @@
-import moment from 'moment-timezone'
-import fs from 'fs'
 import fetch from 'node-fetch'
-  import jimp from 'jimp'
-import PhoneNumber from 'awesome-phonenumber'
-let { MessageType } = (await import('@adiwajshing/baileys')).default
+import { promises, readFileSync } from 'fs'
+import { join } from 'path'
+import { xpRange } from '../lib/levelling.js'
+import moment from 'moment-timezone'
 
-let handler = async (m, { conn, usedPrefix: _p, __dirname, text, command }) => {
-let tag = `@${m.sender.replace(/@.+/, '')}`
-  let mentionedJid = [m.sender]
-let ucpn = `${ucapan()}`
-let name = conn.getName(m.sender)
+let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
+let date = moment.tz('Asia/Jakarta').format("dddd, Do MMMM, YYYY")
+let time = moment.tz('Asia/Jakarta').format('HH:mm:ss') 
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let totalreg = Object.keys(global.db.data.users).length
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let pp = hwaifu.getRandom()
+    let thum = thumbnailUrl.getRandom()
+    let name = await conn.getName(who)
+    let pepe = await conn.resize(pp, 350, 400)
+    let users = Object.entries(global.db.data.users).filter(user => user[1].banned)
+    
+    let _muptime
+    if (process.send) {
+      process.send('uptime')
+      _muptime = await new Promise(resolve => {
+        process.once('message', resolve)
+        setTimeout(resolve, 1000)
+      }) * 1000
+    }
+    
+    let totalf = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
+        if (typeof global.db.data.users[who] == "undefined") {
+      global.db.data.users[who] = {
+        exp: 0,
+        limit: 10,
+        lastclaim: 0,
+        registered: false,
+        name: conn.getName(m.sender),
+        age: -1,
+        regTime: -1,
+        afk: -1,
+        afkReason: '',
+        banned: false,
+        level: 0,
+        lastweekly: 0,
+        role: 'Warrior V',
+        autolevelup: false,
+        money: 0,
+        pasangan: "",
+      }
+     }
+     
+  let cap = `╭─────═[ INFO USER ]═─────⋆
+│╭────────────────···
+┴│☂︎ 𝗡𝗮𝗺𝗲 : ${name}
+⬡│☂︎ 𝗫𝗽 : ${exp}
+⬡│☂︎ 𝗦𝘁𝗮𝘁𝘂𝘀 : ${who.premiumTime > 0 ? 'Premium' : 'Free'}
+⬡│☂︎ 𝗕𝗮𝗶𝗹𝗲𝘆𝘀 : Multi Device
+⬡│☂︎ 𝗧𝘆𝗽𝗲 : Node.js
+⬡│☂︎ 𝗨𝗽𝘁𝗶𝗺𝗲 : %muptime
+┬│☂︎ 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲 :  %rtotalreg dari %totalreg
+│╰────────────────···
+╰──────────═┅═──────────
+ `
+//await m.reply('𝗌𝖾𝖽𝖺𝗇𝗀 𝗆𝖾𝗇𝖺𝗆𝗉𝗂𝗅𝗄𝖺𝗇 𝗆𝖾𝗇𝗎...')
+await conn.sendButton(m.chat, cap, 'ᴄʀᴇᴀᴛᴇᴅ ʙʏ ʜᴀɴ', Buffer.alloc(0), [['List Menu', '.menulist'], ['All Menu', '.? all']], fkontak, { mimetype: "text/rtf", fileName: 'sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜᴀɴ', pageCount: 90000, fileLength: 90000, seconds: 90000, jpegThumbnail: pepe, contextInfo: {
+          externalAdReply :{
+          showAdAttribution: true,
+    mediaUrl: sig,
+    mediaType: 2,
+    description: "𝗦𝗵𝗶𝗸𝗶𝗺𝗼𝗿𝗶", 
+    title: "Follow My Instagram !",
+    body: 'Hai ' + name +  ucapan,
+    thumbnail: await (await fetch(pp)).buffer(),
+    sourceUrl: sig
+     }}
+  })
+}
 
-//tim
-let wib = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-    let wibh = moment.tz('Asia/Jakarta').format('HH')
-    let wibm = moment.tz('Asia/Jakarta').format('mm')
-    let wibs = moment.tz('Asia/Jakarta').format('ss')
-    let wit = moment.tz('Asia/Jayapura').format('HH:mm:ss')
-    let wita = moment.tz('Asia/Makassar').format('HH:mm:ss')
-    let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
-   
-    let d = new Date(new Date + 3600000)
-    let locale = 'id'
-    // d.getTimeZoneOffset()
-    // Offset -420 is 18.00
-    // Offsetalldiii0 is  0.00
-    // Offset  420 is  7.00
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
-    let date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-    
-//==============> Menu nya
-let intro = `Hello, I am an automated system  for WhatsApp and I can help you download things from your internet everyday. I am not a super bot yet but my developer is trying to do it so I apologize for the trouble I am causing you....!`
-conn.send3ButtonDoc(m.chat, `\n\n     *『 ɪ ɴ ᴛ ʀ ᴏ ᴄ ᴀ ᴅ ᴜ ᴛ ɪ ᴏ ɴ 』*\n\n`, intro + `\n\n${tag}\n\n`, 'Aʟʟ Mᴇɴᴜ', '.? all', 'Lɪsᴛ Mᴇɴᴜ', '.menulist', '\nAku Pedo Ygy', 'bilek', m, { contextInfo: { forwardingScore: fsizedoc, externalAdReply: { body: 'Tes', containsAutoReply: true, mediaType: 1, mediaUrl: hwaifu.getRandom(),  renderLargerThumbnail: true, showAdAttribution: true, sourceId: 'Tes', sourceType: 'PDF', previewType: 'PDF', sourceUrl: sgc, thumbnail: fs.readFileSync('./thumbnail.jpg'), thumbnailUrl: sgc, title: 'ɪ ɴ ᴛ ʀ ᴏ ᴄ ᴀ ᴅ ᴜ ᴛ ɪ ᴏ ɴ'}}})
-    } 
-    
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = /^(menu|help|co)$/i
-handler.register = false
+handler.command = /^(menu|help)$/i
 
 export default handler
 
-//----------- FUNCTION -------
-
 function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)]
-}
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
-
-function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, ' H ', m, ' M ', s, ' S '].map(v => v.toString().padStart(2, 0)).join('')
-}
-function clockStringP(ms) {
-  let ye = isNaN(ms) ? '--' : Math.floor(ms / 31104000000) % 10
-  let mo = isNaN(ms) ? '--' : Math.floor(ms / 2592000000) % 12
-  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000) % 30
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [ye, ' *Years 🗓️*\n',  mo, ' *Month 🌙*\n', d, ' *Days ☀️*\n', h, ' *Hours 🕐*\n', m, ' *Minute ⏰*\n', s, ' *Second ⏱️*'].map(v => v.toString().padStart(2, 0)).join('')
-}
-function ucapan() {
-  const time = moment.tz('Asia/Jakarta').format('HH')
-  let res = "Sudah Dini Hari Kok Belum Tidur Kak? 🥱"
-  if (time >= 4) {
-    res = "Pagi Lord 🌄"
+     return list[Math.floor(Math.random() * list.length)]
   }
-  if (time >= 10) {
-    res = "Selamat Siang Kak ☀️"
-  }
-  if (time >= 15) {
-    res = "Selamat Sore Kak 🌇"
-  }
-  if (time >= 18) {
-    res = "Malam Kak 🌙"
-  }
-  return res
-}
-
-function wish() {
-    let wishloc = ''
-  const time = moment.tz('Asia/Kolkata').format('HH')
-  wishloc = ('Hi')
-  if (time >= 0) {
-    wishloc = ('Night Rider')
-  }
-  if (time >= 4) {
-    wishloc = ('Good Morning')
-  }
-  if (time >= 12) {
-    wishloc = ('Good Afternoon')
-  }
-  if (time >= 16) {
-    wishloc = ('️Good Evening')
-  }
-  if (time >= 23) {
-    wishloc = ('Night Rider')
-  }
-  return wishloc
-}
