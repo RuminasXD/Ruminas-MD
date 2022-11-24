@@ -774,23 +774,58 @@ Untuk mematikan fitur ini, ketik
 }
 
 global.dfail = (type, m, conn) => {
-    let msg = {
-        rowner: '*ᴏɴʟʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙᴏᴛ',
-        owner: '*ᴏɴʟʏ ᴏᴡɴᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴏᴡɴᴇʀ ʙᴏᴛ',
-        mods: '*ᴏɴʟʏ ᴍᴏᴅᴇʀᴀᴛᴏʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴍᴏᴅᴇʀᴀᴛᴏʀ ʙᴏᴛ',
-        premium: '*ᴏɴʟʏ ᴘʀᴇᴍɪᴜᴍ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴘʀᴇᴍɪᴜᴍ ᴜsᴇʀ',
-        group: '*ɢʀᴏᴜᴘ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴅᴀʟᴀᴍ ɢʀᴏᴜᴘ',
-        private: '*ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ',
-        admin: '*ᴏɴʟʏ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ',
-        botAdmin: '*ᴏɴʟʏ ʙᴏᴛ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ ᴋᴇᴛɪᴋᴀ ʙᴏᴛ ᴍᴇɴᴊᴀᴅɪ ᴀᴅᴍɪɴ',
-        //unreg: '*ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ʀᴇɢɪsᴛᴇʀᴇᴅ ʏᴇᴛ* • ᴋᴇᴛɪᴋ  .daftar ᴜɴᴛᴜᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ', 
-        restrict: '*ʀᴇsᴛʀɪᴄᴛ* • ʀᴇsᴛʀɪᴄᴛ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴅɪᴄʜᴀᴛ ɪɴɪ',
-    }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '💌 Creator', '.owner', 'Oke Bang', 'Huuu', null, adReply)
+const fgclink = {
+           "key": {
+               "fromMe": false,
+               "participant": "0@s.whatsapp.net",
+               "remoteJid": "0@s.whatsapp.net"
+           },
+           "message": {
+               "groupInviteMessage": {
+                   "groupJid": "6282127487538-1625305606@g.us",
+                   "inviteCode": "null",
+                   "groupName": "Halo", 
+                   "caption": wm, 
+                   'jpegThumbnail': fs.readFileSync('./media/ok.jpg')
+               }
+           }
+       }
+       let tag = `@${m.sender.replace(/@.+/, '')}`
+  let mentionedJid = [m.sender]
+    let rown = {
+        rowner: 'Printah ini hanya di gunakan oleh *Developer BOT* !'}[type]
+  if (rown) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + rown, 'Only Developer', 'Owner', '.owner', m, adReply)
+
+        
+let own = {
+owner: 'Printah ini hanya di gunakan oleh *Owner* !'}[type]
+  if (own) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + own, 'Only OWNER', 'Owner', '.owner', m, adReply)
+
+let mod = {
+mods: 'Printah ini hanya di gunakan oleh *Moderator BOT* !'}[type]
+  if (mod) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + mod, 'Only Moderator', 'MENU', '.menu', m, adReply)
+let prm = {
+        premium: 'Printah ini hanya di gunakan oleh member *Premium* !'}[type]
+  if (prm) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + prm, 'Only Premium', 'Beli Prem', '.sewa', m, adReply)
+
+let gc = {
+        group: 'Printah ini hanya dapat di gunakan di dalam *Group* !'
+        }[type]
+  if (gc) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + gc, 'Only Group', 'MENU', '.menu', m, adReply)
+
+let msg = {
+        private: 'Printah ini hanya dapat di gunakan di *Private Chat !*',
+        admin: 'Printah ini hanya di gunakan oleh *Admin* !',
+        botAdmin: 'Printah ini hanya di gunakan ketika bot menjadi *Admin Group* !',
+        restrict: 'Restrict belum di nyalakan di chat ini !'}[type]
+  /*  if (msg) return conn.sendButtonDoc(m.chat, msg, wm, 'Menu', '.menu', fgclink)*/
+  if (msg) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + msg, wm, 'MENU', '.menu', m, adReply)
+  
+  
     let msgg = {
     	unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar kurumi.18*!'
 }[type]
-if (msgg) return conn.sendButton(m.chat, `${global.htki} VERIFY ${global.htka}`, msgg, null, ['- ᴠᴇʀɪғʏ -', '/verify'],m)
+if (msgg) return conn.sendButtonDocAccess(m.chat, ucapan() + tag + '\n' + msgg, 'Silahkan Verifikasi', '❮ ᴠᴇʀɪғʏ ❯', '.verify', m, adReply)
 }
 
 function ucapan() {
